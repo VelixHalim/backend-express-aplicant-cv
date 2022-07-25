@@ -17,7 +17,7 @@ const prodConfig={
     DATABASE: 'd66c7sfct6gjni',
     USERNAME: 'gomctzibjvdckc',
     PASSWORD: '138476c5e89eec70a8d509c989b7a01722352f22599b75ae39cd783189a859d5',
-    SERVER_ENDPOINT: 'https://backend-express-aplicant-cv.herokuapp.com/'   
+    SERVER_ENDPOINT: 'https://backend-express-aplicant-cv.herokuapp.com'   
 }
 
 if(env==='development'){
