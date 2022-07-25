@@ -11,7 +11,7 @@ class CVDatasource{
 
     async getAllDataCV(){
         let sql =`
-            select * from "Pelamar"
+            select * from Pelamar
         `
         const [Ostatus, Oresult, Ometadata] = await CommonFunction.DoQuery(this.cvPGDB,sql,{})
         console.log(Ostatus,Oresult)
@@ -31,7 +31,7 @@ class CVDatasource{
         // console.log(id, nama_lengkap)
         const t = await this.cvPGDB.sequelize.transaction();
         let sql =`
-            insert into "Pelamar" (id, nama_lengkap,summary, nomortelepon,email, gender, alamat, linkedin, createddate, updateddate)
+            insert into Pelamar (id, nama_lengkap,summary, nomortelepon,email, gender, alamat, linkedin, createddate, updateddate)
             values ('${id}', '${nama_lengkap}',' ${summary}',' ${nomortelepon}', '${email}',' ${gender}',' ${alamat}', '${linkedin}',current_timestamp, current_timestamp)
         `
         const [Ostatus, Oresult, Ometadata] = await CommonFunction.DoTransactionQueryNonArray(this.cvPGDB,sql,{},t)
@@ -46,7 +46,7 @@ class CVDatasource{
         console.log(Oresult)
 
         let sqledu =`
-            insert into "Education" (idpelamar, degree,gpa,tempat_pendidikan,jurusan,createddate, updateddate)
+            insert into Education (idpelamar, degree,gpa,tempat_pendidikan,jurusan,createddate, updateddate)
             values
         `
         const jmledu = education.length
@@ -69,7 +69,7 @@ class CVDatasource{
         console.log(Eresult)
 
         let sqlexp =`
-            insert into "Experience" (idpelamar, job,detail,createddate, updateddate)
+            insert into Experience (idpelamar, job,detail,createddate, updateddate)
             values
         `
         const jmlexp = education.length
@@ -96,7 +96,7 @@ class CVDatasource{
     }
     async getDetailDataCV(id){
         let sqledu = `
-            select * from "Education" where idpelamar ='${id}'
+            select * from Education where idpelamar ='${id}'
         `
         const [Estatus, Eresult, Emetadata] = await CommonFunction.DoQuery(this.cvPGDB,sqledu,{})
         if(Estatus==1){
@@ -105,7 +105,7 @@ class CVDatasource{
             return Response(553,"Data tidak ditemukan",null);
         }
         let sqlexp = `
-            select * from "Experience" where idpelamar ='${id}'
+            select * from Experience where idpelamar ='${id}'
         `
         const [Xstatus, Xresult, Xmetadata] = await CommonFunction.DoQuery(this.cvPGDB,sqlexp,{})
         if(Xstatus==1){
@@ -123,7 +123,7 @@ class CVDatasource{
     async deleteDataCV (id){
         const t = await this.cvPGDB.sequelize.transaction();
         let sql=`
-            delete from "Pelamar" where id='${id}'
+            delete from Pelamar where id='${id}'
         `
         const [Pstatus, Presult, Pmetadata] = await CommonFunction.DoTransactionQueryNonArray(this.cvPGDB,sql,{})
         if(Pstatus==1){
@@ -134,7 +134,7 @@ class CVDatasource{
             return Response(553,"Data tidak ditemukan",null);
         }
         let sqledu=`
-            delete from "Education" where idpelamar='${id}'
+            delete from Education where idpelamar='${id}'
         `
         const [Estatus, Eresult, Emetadata] = await CommonFunction.DoTransactionQueryNonArray(this.cvPGDB,sqledu,{})
         if(Estatus==1){
@@ -145,7 +145,7 @@ class CVDatasource{
             return Response(553,"Data tidak ditemukan",null);
         }
         let sqlexp=`
-            delete from "Experience" where idpelamar='${id}'
+            delete from Experience where idpelamar='${id}'
         `
         const [Xstatus, Xresult, Xmetadata] = await CommonFunction.DoTransactionQueryNonArray(this.cvPGDB,sqlexp,{})
         if(Xstatus==1){
