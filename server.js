@@ -17,6 +17,5 @@ app.use(express.static(path.join(__dirname,'public')))
 
 //route
 app.use('/cv',cv)
-app.get("/",(req,res)=>res.send("halo"))
 
 app.listen(port, ()=> console.log(`Server listening on PORT ${port}`))

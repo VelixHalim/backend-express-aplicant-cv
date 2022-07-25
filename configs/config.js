@@ -1,4 +1,4 @@
-const env = 'production'
+const env = 'development' // development / production
 
 const devConfig={
     PORT:'5000',

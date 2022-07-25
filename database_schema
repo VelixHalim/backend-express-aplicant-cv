@@ -1,0 +1,36 @@
+CREATE TABLE Pelamar (
+	id serial4 NOT NULL,
+	nama_lengkap text NULL,
+	summary text NULL,
+	nomortelepon text NULL,
+	email text NULL,
+	gender text NULL,
+	alamat text NULL,
+	linkedin text NULL,
+	createddate date NULL,
+	updatedate date null,
+	CONSTRAINT "Pelamar_pkey" primary key (id)
+)
+
+CREATE TABLE Experience (
+	id serial4 NOT NULL,
+	job text NULL,
+	detail text NULL,
+	createddate date NULL,
+	updateddate date NULL,
+	idpelamar text NOT NULL,
+	CONSTRAINT "Experience_pkey" PRIMARY KEY (id)
+);
+
+
+CREATE TABLE Education (
+	"degree" text NULL,
+	gpa int4 NULL,
+	tempat_pendidikan text NULL,
+	jurusan text NULL,
+	createddate date NULL,
+	updateddate date NULL,
+	id serial4 NOT NULL,
+	idpelamar text NULL,
+	CONSTRAINT "Education_pkey" PRIMARY KEY (id)
+);
