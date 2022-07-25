@@ -4,6 +4,7 @@ const {PORT}=require('./configs/config')
 const cors = require('cors')
 const path= require('path')
 const bodyParser = require('body-parser')
+const port = process.env.PORT || PORT
 
 //route file
 const cv = require("./routes/aplicantroutes")
@@ -18,4 +19,4 @@ app.use(express.static(path.join(__dirname,'public')))
 app.use('/cv',cv)
 
 
-app.listen(PORT, ()=> console.log(`Server listening on PORT ${PORT}`))
+app.listen(port, ()=> console.log(`Server listening on PORT ${port}`))
