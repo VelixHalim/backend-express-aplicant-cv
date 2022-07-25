@@ -10,7 +10,11 @@ module.exports.cvPG =()=>{
     dialectOptions: {
         useUTC: false, //for reading from database
         dateStrings: true,
-        typeCast: true
+        typeCast: true,
+        ssl:{
+            require: true,
+            rejectUnauthorized: false
+        }
     },
     pool: {
       max: 5,
