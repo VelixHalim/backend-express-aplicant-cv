@@ -11,10 +11,10 @@ module.exports.cvPG =()=>{
         useUTC: false, //for reading from database
         dateStrings: true,
         typeCast: true,
-        ssl:{// if environment development -> di comment
-            require: true,
-            rejectUnauthorized: false
-        }
+        // ssl:{// if environment development -> di comment
+        //     require: true,
+        //     rejectUnauthorized: false
+        // }
     },
     pool: {
       max: 5,
